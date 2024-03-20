@@ -27,7 +27,7 @@ seasons = ['summer', 'winter', 'rainy']
 # Create a CSV file and write the header
 with open('dataset.csv', 'w', newline='') as file:
     writer = csv.writer(file)
-    writer.writerow(['Year', 'Month', 'Day', 'Category', 'Product', 'Sales'])
+    writer.writerow(['Year', 'Month', 'Day', 'Category', 'Product', 'Sales' , 'IsFestival', 'IsWeekend', 'Season'])
 
     for year in range(2018, 2021):
         for month in months:
@@ -75,7 +75,7 @@ with open('dataset.csv', 'w', newline='') as file:
                             baseSales = math.ceil(baseSales)
 
                             # Write the data to the CSV file
-                            writer.writerow([year, month, day, cat, electronics[i], baseSales, isFestival, isWeekend])
+                            writer.writerow([year, month, day, cat, electronics[i], baseSales, isFestival, isWeekend, season])
                     elif cat == 'beverages':
                         for i in range(0, len(beverages)):
                             isFestival = random.choice([True, False])
@@ -90,7 +90,7 @@ with open('dataset.csv', 'w', newline='') as file:
                             if isFestival and isWeekend:
                                 baseSales = baseSales + (baseSales * random.randint(22, 28) / 100)
                             baseSales = math.ceil(baseSales)
-                            writer.writerow([year, month, day, cat, beverages[i], baseSales, isFestival, isWeekend])
+                            writer.writerow([year, month, day, cat, beverages[i], baseSales, isFestival, isWeekend, season])
                     
                     elif cat == 'clothing':
                         for i in range(0, len(clothing)):
@@ -106,7 +106,7 @@ with open('dataset.csv', 'w', newline='') as file:
                             if isFestival and isWeekend:
                                 baseSales = baseSales + (baseSales * random.randint(25, 28) / 100)
                             baseSales = math.ceil(baseSales)
-                            writer.writerow([year, month, day, cat, clothing[i], baseSales, isFestival, isWeekend])
+                            writer.writerow([year, month, day, cat, clothing[i], baseSales, isFestival, isWeekend , season])
 
                     elif cat == 'travel':
                         for i in range(0, len(travel)):
@@ -122,7 +122,7 @@ with open('dataset.csv', 'w', newline='') as file:
                             if isFestival and isWeekend:
                                 baseSales = baseSales + (baseSales * random.randint(10, 14) / 100)
                             baseSales = math.ceil(baseSales)
-                            writer.writerow([year, month, day, cat, travel[i], baseSales, isFestival, isWeekend])
+                            writer.writerow([year, month, day, cat, travel[i], baseSales, isFestival, isWeekend, season])
 
                     elif cat == 'beauty':
                         for i in range(0, len(beauty)):
@@ -138,5 +138,5 @@ with open('dataset.csv', 'w', newline='') as file:
                             if isFestival and isWeekend:
                                 baseSales = baseSales + (baseSales * random.randint(6, 10) / 100)
                             baseSales = math.ceil(baseSales)
-                            writer.writerow([year, month, day, cat, beauty[i], baseSales, isFestival, isWeekend])
+                            writer.writerow([year, month, day, cat, beauty[i], baseSales, isFestival, isWeekend, season])
 
