@@ -46,7 +46,7 @@ export default function Login() {
       localStorage.setItem("id", id);
       localStorage.setItem("username", username);
       localStorage.setItem("password", password);
-      router.push("/user");
+      router.push("/dashboard");
     }
   }
   return (
