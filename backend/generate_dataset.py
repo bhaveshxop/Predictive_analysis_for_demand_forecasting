@@ -57,17 +57,17 @@ with open('dataset.csv', 'w', newline='') as file:
                                 baseSales = electronics_base_seales[i] + (electronics_base_seales[i] * random.randint(100, 130) / 100)
                             if season == 'summer' and electronics[i] == 'heater':
                                 # Increase sales by 50% to 60% randomly
-                                baseSales = electronics_base_seales[i] + (electronics_base_seales[i] * random.randint(10, 25) / 100)
+                                baseSales = electronics_base_seales[i] + (electronics_base_seales[i] * random.randint(20, 25) / 100)
 
                             # Increase sales by 50 to 60% randomly
-                            baseSales = electronics_base_seales[i] + (electronics_base_seales[i] * random.randint(50, 60) / 100)
+                            baseSales = electronics_base_seales[i]
                             
                             if isFestival:
-                                # Increase sales randomly by 20 to 35%
-                                baseSales = baseSales + (baseSales * random.randint(20, 35) / 100)
+                                # Increase sales randomly by 30 to 35%
+                                baseSales = baseSales + (baseSales * random.randint(30, 35) / 100)
                             if isWeekend:
                                 # Increase sales randomly by 10 to 20%
-                                baseSales = baseSales + (baseSales * random.randint(10, 20) / 100)
+                                baseSales = baseSales + (baseSales * random.randint(15, 20) / 100)
                             if isFestival and isWeekend:
                                 # Increase sales ramdomly by 22 to 28%
                                 baseSales = baseSales + (baseSales * random.randint(22, 28) / 100)
@@ -82,7 +82,7 @@ with open('dataset.csv', 'w', newline='') as file:
                             isWeekend = random.choice([True, False])
                             if day == 'sunday' or day == 'saturday':
                                 isWeekend = True
-                            baseSales = beverages_base_seales[i] + (beverages_base_seales[i] * random.randint(50, 60) / 100)
+                            baseSales = beverages_base_seales[i]
                             if isFestival:
                                 baseSales = baseSales + (baseSales * random.randint(15, 17) / 100)
                             if isWeekend:
@@ -98,7 +98,7 @@ with open('dataset.csv', 'w', newline='') as file:
                             isWeekend = random.choice([True, False])
                             if day == 'sunday' or day == 'saturday':
                                 isWeekend = True
-                            baseSales = clothing_base_seales[i] + (clothing_base_seales[i] * random.randint(50, 60) / 100)
+                            baseSales = clothing_base_seales[i]
                             if isFestival:
                                 baseSales = baseSales + (baseSales * random.randint(50, 60) / 100)
                             if isWeekend:
@@ -114,7 +114,7 @@ with open('dataset.csv', 'w', newline='') as file:
                             isWeekend = random.choice([True, False])
                             if day == 'sunday' or day == 'saturday':
                                 isWeekend = True
-                            baseSales = travel_base_seales[i] + (travel_base_seales[i] * random.randint(50, 60) / 100)
+                            baseSales = travel_base_seales[i] 
                             if isFestival:
                                 baseSales = baseSales + (baseSales * random.randint(15, 17) / 100)
                             if isWeekend:
@@ -130,9 +130,9 @@ with open('dataset.csv', 'w', newline='') as file:
                             isWeekend = random.choice([True, False])
                             if day == 'sunday' or day == 'saturday':
                                 isWeekend = True
-                            baseSales = beauty_base_seales[i] + (beauty_base_seales[i] * random.randint(50, 60) / 100)
+                            baseSales = beauty_base_seales[i]
                             if isFestival:
-                                baseSales = baseSales + (baseSales * random.randint(18, 24) / 100)
+                                baseSales = baseSales + (baseSales * random.randint(20, 24) / 100)
                             if isWeekend:
                                 baseSales = baseSales + (baseSales * random.randint(10, 12) / 100)
                             if isFestival and isWeekend:
