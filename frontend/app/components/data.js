@@ -14,27 +14,27 @@ import {
   CogIcon,
 } from "@heroicons/react/24/solid";
 
-import sarkar from "../public/img/Banner.jpg";
+import sarkar from "../public/img/sss.webp";
 import benefitTwoImg from "../public/img/benefit-two.png";
 
 const benefitOne = {
   title: "Services provided",
-  desc: "जनहित connects as the name suggest provides a platform to connect the peoples problem with the responsible department. It is a platform where you can register your complaint and a quick action will be taken by the responsible department.",
+  desc: "Transform your shop's success with our predictive sales analysis platform. Anticipate demand, optimize inventory, and stay ahead of the competition. Make data-driven decisions effortlessly and maximize profitability. Join us today for smarter retail management",
   image: sarkar,
   bullets: [
     {
-      title: "Complaint Box",
-      desc: "where you can register your complaint and get a quick action.",
+      title: "Predicting future sales",
+      desc: "Predicting future sales based on past data and trends.",
       icon: <CogIcon />,
     },
     {
-      title: "Water dispersion",
-      desc: "At which time water will be dispersed in your area.",
+      title: "Sales analysis",
+      desc: "Analyzing sales data to make better decisions for the future.",
       icon: <CogIcon />,
     },
     {
-      title: "Electricity cutoffs",
-      desc: "At which time electricity will be cut off in your area.",
+      title: "Inventory help",
+      desc: "inventory management to optimize inventory and reduce costs.",
       icon: <CogIcon />,
     },
   ],
