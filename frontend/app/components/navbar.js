@@ -1,17 +1,17 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import logo2 from "../public/img/logo2.png";
+import logo2 from "../public/img/pnn.png";
 import { Disclosure } from "@headlessui/react";
 
 const Navbar = () => {
   const [username, setUsername] = useState("");
 
-  const navigation = ["Home", "Complaints", "Water", "Electricity", "About Us"];
+  const navigation = ["Home", "Dashboard", "About Us"];
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && localStorage.getItem("name")) {
+    if (typeof window !== "undefined" && localStorage.getItem("name")) {
       setUsername(localStorage.getItem("name").split(" ")[0]);
     }
   }, []);
@@ -28,12 +28,14 @@ const Navbar = () => {
                     <span>
                       <Image
                         src={logo2}
-                        alt="जनहित Connect"
-                        width={90}
-                        height={90}
+                        alt="पूर्वानुमान"
+                        width={50}
+                        height={50}
                       />
                     </span>
-                    <span>जनहित Connect</span>
+                    <b>
+                      <span>पूर्वानुमान</span>
+                    </b>
                   </span>
                 </Link>
 
