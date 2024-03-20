@@ -37,23 +37,24 @@ const Faq = () => {
 
 const faqdata = [
   {
-    question: "What is the procedure to file a complaint?",
-    answer: "Create a account and then in the complaint section add complaint.",
+    question: "How can I access predictive sales analysis for my shop?",
+    answer: "Simply sign up and navigate to the sales analysis section to view predictions for your shop.",
   },
   {
-    question: "Is this a authentic government platform?",
-    answer: "Yes, this ia an official platform by government of india .",
+    question: "Is this platform reliable for shopkeepers?",
+    answer: "Absolutely, our platform is a trusted solution developed specifically for shopkeepers' needs.",
   },
   {
-    question: "How will the water timmings and electricity cutoffs conveyed? ",
+    question: "Will I receive alerts for peak sales hours and inventory restocking?",
     answer:
-      "The water timmings and electricity cutoffs will be conveyed through the app and also through  SMS onregistered mobile number.",
+      "Yes, you will receive real-time alerts via the app and SMS on your registered mobile number for peak sales hours and inventory restocking.",
   },
   {
-    question: "The complaints will be conveyed to Nagarsevak, right? ",
+    question: "Who will receive the sales predictions and analysis?",
     answer:
-      "Yes, the complaints will be conveyed to Nagarsevak and also to the concerned department.",
+      "You will have access to the sales predictions and analysis directly, helping you make informed decisions to optimize your shop's performance.",
   },
 ];
+
 
 export default Faq;

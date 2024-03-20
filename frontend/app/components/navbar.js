@@ -17,14 +17,14 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="w-full fixed bg-gray-100 top-0 left-0">
-      <nav className="container bg-gray-100  flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-0">
+    <div className="w-full bg-white-100 ">
+      <nav className="container bg-white-100 realtive flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-0">
         <Disclosure>
           {({ open }) => (
             <>
               <div className="flex flex-wrap items-center justify-between w-full lg:w-auto">
                 <Link href="/">
-                  <span className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 ">
+                  <span className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
                     <span>
                       <Image
                         src={logo2}
@@ -41,7 +41,7 @@ const Navbar = () => {
 
                 <Disclosure.Button
                   aria-label="Toggle Menu"
-                  className="px-2 py-1 ml-auto text-gray-500 rounded-md lg:hidden hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none"
+                  className="px-2 py-1 ml-auto text-gray-500 rounded-md lg:hidden hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:text-gray-300 dark:focus:bg-trueGray-700"
                 >
                   <svg
                     className="w-6 h-6 fill-current"
@@ -79,14 +79,9 @@ const Navbar = () => {
                               if (!localStorage.getItem("name")) {
                                 router.push("/login");
                               }
-                              else {
-                                router.push(
-                                  `/${menu.toLowerCase().replace(" ", "-")}`
-                                );
-                              }
                             }
                           }}
-                          className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md  hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none "
+                          className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
                         >
                           {menu}
                         </Link>
@@ -105,7 +100,7 @@ const Navbar = () => {
               <li className="mr-3 nav__item" key={index}>
                 <Link
                   href="/login"
-                  className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none"
+                  className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
                 >
                   {menu}
                 </Link>
@@ -115,36 +110,14 @@ const Navbar = () => {
         </div>
 
         <div className="hidden mr-3 space-x-4 lg:flex nav__item">
-          {
-            username ? (<>
-              <div className="flex items-center">
-                <p className="text-gray-500 text-lg me-3">Welcome, {username}</p>
-
-                <Link href="/login">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      localStorage.removeItem("name");
-                      localStorage.removeItem("id");
-                    }}
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 :outline-none"
-                  >
-                    Logout
-                  </button>
-                </Link>
-              </div>
-            </>
-            ) : (
-              <Link href="/login">
-                <button
-                  type="button"
-                  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 :outline-none"
-                >
-                  Login/Register
-                </button>
-              </Link>
-            )
-          }
+          <Link href="/login">
+            <button
+              type="button"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 :outline-none"
+            >
+              Login/Register
+            </button>
+          </Link>
         </div>
       </nav>
     </div>

@@ -3,13 +3,13 @@ import Image from "next/image";
 import Container from "./container";
 
 import heroImg from "../public/img/image.png";
-import finance from "../public/img/Ministry/finance.png";
-import health from "../public/img/Ministry/health.png";
-import education from "../public/img/Ministry/education.png";
-import home from "../public/img/Ministry/home.png";
-import railway from "../public/img/Ministry/railway.png";
-import water from "../public/img/Ministry/water.png";
-import road from "../public/img/Ministry/road.png";
+// import finance from "../public/img/Ministry/finance.png";
+// import health from "../public/img/Ministry/health.png";
+// import education from "../public/img/Ministry/education.png";
+// import home from "../public/img/Ministry/home.png";
+// import railway from "../public/img/Ministry/railway.png";
+// import water from "../public/img/Ministry/water.png";
+// import road from "../public/img/Ministry/road.png";
 import { useEffect, useState } from "react";
 // import { useRouter } from "next/router";
 import { useRouter } from "next/navigation";
@@ -42,15 +42,16 @@ const Hero = () => {
   }
   return (
     <>
-      <Container className="flex flex-wrap ">
+      <Container className="flex flex-wrap mt-14">
         <div className="flex items-center w-full lg:w-1/2">
           <div className="max-w-2xl mb-8">
             <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight">
-              हर समस्या का हल, जनहित कनेक्ट के साथ आओ, मिलकर बदले ज़िंदगी!
+              "आवश्यकताओं का अनुमान: इन्वेंटरी प्रबंधन में सुधार।"
             </h1>
             <p className="py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl ">
-              Janhit helps to connect the peoples problems with the responsible
-              department.
+              Get ahead with predictive sales analysis for shopkeepers. Our
+              website offers tailored insights to optimize inventory and boost
+              profitability.
             </p>
 
             <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
@@ -58,7 +59,7 @@ const Hero = () => {
                 onClick={handleRegisterComplaint}
                 className="px-8 py-4 text-lg font-medium text-center text-white bg-indigo-600 rounded-md "
               >
-                Register complaint
+                Move to Dashboard
               </button>
             </div>
           </div>
@@ -77,11 +78,10 @@ const Hero = () => {
           </div>
         </div>
       </Container>
-      <Container>
+      {/* <Container>
         <div className="flex flex-col justify-center">
           <div className="text-xl text-center text-gray-700 ">
-            Monitored by <span className="text-indigo-600">all</span> Ministries
-            of government of India
+            Our <span className="text-indigo-600">services</span>
           </div>
 
           <div className="flex flex-wrap justify-center gap-5 mt-10 md:justify-around">
@@ -142,7 +142,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </Container>
+      </Container> */}
     </>
   );
 };

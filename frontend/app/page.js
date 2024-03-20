@@ -26,22 +26,22 @@ const page = () => {
 
       <Navbar />
       <Hero />
-      <SectionTitle title=" Why should you use जनहित Connect">
-        Choose JanhitConnect for effortless solutions to all your problems,
-        making community issues a thing of the past. With a user-centric
-        approach, we simplify life for everyone, ensuring a brighter tomorrow
-        for all.
+      <SectionTitle title=" Why should you use पूर्वानुमान">
+        Transform your shop's success with our predictive sales analysis
+        platform. Anticipate demand, optimize inventory, and stay ahead of the
+        competition. Make data-driven decisions effortlessly and maximize
+        profitability. Join us today for smarter retail management
       </SectionTitle>
       <Benefits data={benefitOne} />
       <SectionTitle
         pretitle="Watch a video"
-        title="Learn how to use जनहित Connect "
+        title="Learn how to use पूर्वानुमान "
       ></SectionTitle>
       <Video />
-      <SectionTitle pretitle="FAQ" title="Frequently Asked Questions">
-        Answer your customers possible questions here, it will increase the
-        conversion rate as well as support or chat requests.
-      </SectionTitle>
+      <SectionTitle
+        pretitle="FAQ"
+        title="Frequently Asked Questions"
+      ></SectionTitle>
       <Faq />
       {/* <Cta /> */}
       <Footer />
