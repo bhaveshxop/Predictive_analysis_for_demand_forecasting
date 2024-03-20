@@ -48,13 +48,16 @@ with open('dataset.csv', 'w', newline='') as file:
                             isWeekend = random.choice([True, False])
                             if day == 'sunday' or day == 'saturday':
                                 isWeekend = True
-                            
+
                             if season == 'winter' and electronics[i] == 'heater':
                                 # Increase sales by 180% to 200% randomly
                                 baseSales = electronics_base_seales[i] + (electronics_base_seales[i] * random.randint(180, 200) / 100)
                             if season == 'rainy' and electronics[i] == 'heater':
                                 # Increase sales by 100% to 120% randomly
                                 baseSales = electronics_base_seales[i] + (electronics_base_seales[i] * random.randint(100, 130) / 100)
+                            if season == 'summer' and electronics[i] == 'heater':
+                                # Increase sales by 50% to 60% randomly
+                                baseSales = electronics_base_seales[i] + (electronics_base_seales[i] * random.randint(10, 25) / 100)
 
                             # Increase sales by 50 to 60% randomly
                             baseSales = electronics_base_seales[i] + (electronics_base_seales[i] * random.randint(50, 60) / 100)
