@@ -12,7 +12,6 @@ export async function query({ query, values = [] }) {
     password: process.env.MYSQL_PASSWORD,
   });
 
-  
 
   try {
     const [results] = await dbconnection.execute(query, values);

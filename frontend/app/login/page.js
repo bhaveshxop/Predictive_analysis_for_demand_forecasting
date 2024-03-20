@@ -14,40 +14,35 @@ export default function Login() {
     console.log(username);
     console.log(password);
 
-    if (username == "superadmin@gmail.com" && password == "superadmin") {
-      localStorage.setItem("name", "superadmin");
+    const response = await fetch("/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: username,
+        password: password,
+      }),
+    });
 
-      router.push("/superadmin");
-    } else {
-      const response = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: username,
-          password: password,
-        }),
-      });
+    const data = await response.json();
+    console.log(data);
 
-      const data = await response.json();
-      console.log(data);
-
-      if (response.status === 400) {
-        setMessage(data.message);
-        return;
-      }
-      console.log(data + "This is My Datas");
-      const userId = data.user[0].fullname;
-      const id = data.user[0].id;
-
-      console.log(userId);
-      localStorage.setItem("name", userId);
-      localStorage.setItem("id", id);
-      localStorage.setItem("username", username);
-      localStorage.setItem("password", password);
-      router.push("/dashboard");
+    if (!response.ok ){
+      setMessage(data.message);
+      return;
     }
+    console.log(data + "This is My Datas");
+
+    const name = data.user.name;
+    const id = data.user.id;
+    const email = data.user.email;
+
+    localStorage.setItem("name", name);
+    localStorage.setItem("id", id);
+    localStorage.setItem("email", email);
+    router.push("/dashboard");
+
   }
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
