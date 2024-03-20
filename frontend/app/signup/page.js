@@ -9,10 +9,6 @@ export default function signup() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [acceptTerms, setAcceptTerms] = useState(false);
-  const [phoneNo, setPhoneNo] = useState("");
-  const [state, setState] = useState("");
-  const [city, setCity] = useState("");
-  const [wardNo, setWardNo] = useState("");
   const router = useRouter();
 
   const handleFullnameChange = (e) => {
@@ -43,16 +39,15 @@ export default function signup() {
       return;
     }
 
-    const response = await fetch("/api/auth", {
+    const response = await fetch("/api/signup", {
       method: "POST",
       headers: {
         "Content-Type": "applicatiom/json",
       },
       body: JSON.stringify({
-        fullname: fullname,
+        name: fullname,
         email: email,
         password: password,
-        
       }),
     });
 
@@ -94,7 +89,7 @@ export default function signup() {
                   name="fullname"
                   id="fullname"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="FIRSTNAME MIDDLENAME LASTNAME"
+                  placeholder="Your full name"
                   required
                 />
               </div>
