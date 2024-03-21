@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-import google.generativeai as genai
+#import google.generativeai as genai
 import os
 from dotenv import load_dotenv
 from flask_cors import CORS
@@ -15,6 +15,14 @@ CORS(app)
 @app.route('/test', methods=['GET'])
 def test():
     return jsonify({'message': 'Hello World'})
+@app.route('/sentiment', methods=['POST'])
+def sentiment():
+    data = request.get_json()
+    Name= data['reviewerName']
+    comments=data['reviewText']
+    
+    
+    return jsonify({'Name':Name,'comments':comments})
 
 @app.route('/predict-sales', methods=['POST'])
 def predict_sales():
