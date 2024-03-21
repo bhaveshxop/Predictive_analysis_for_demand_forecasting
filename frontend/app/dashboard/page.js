@@ -6,7 +6,7 @@ import logo2 from "../public/img/pnn.png";
 import Image from "next/image";
 import SideBar from "../components/SideBar";
 import PredictiveSalesPage from "../components/PredictiveSalesPage";
-import ReviewScorePage from "../components/ReviewScorePage";
+import ReviewSentiment from "../components/ReviewSentiment";
 import ReviewAnalysisPage from "../components/ReviewAnalysisPage";
 import ReportsPage from "../components/ReportsPage";
 
@@ -99,7 +99,7 @@ export default function Page() {
       <div className="p-4 sm:ml-64">
         <div className="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
           {component === "predict-sales" && <PredictiveSalesPage />}
-          {component === "review-score" && <ReviewScorePage />}
+          {component === "review-score" && <ReviewSentiment />}
           {component === "review-analysis" && <ReviewAnalysisPage />}
           {component === "reports" && <ReportsPage />}
         </div>
