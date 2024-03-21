@@ -1,54 +1,55 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.preprocessing import OneHotEncoder
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline
-from sklearn.metrics import mean_squared_error
+from sklearn.preprocessing import LabelEncoder
 import pickle
 
-# Load the dataset
-data = pd.read_csv('dataset.csv')
+def train_model():        
+    df = pd.read_csv('dataset.csv')
 
-# Separate features and target variable
-X = data.drop('Sales', axis=1)
-y = data['Sales']
+    # Convert categorical variables to numerical
+    label_encoders = {}
+    for column in ['Month', 'Day', 'Category', 'Product', 'IsFestival', 'IsWeekend', 'Season']:
+        le = LabelEncoder()
+        df[column] = le.fit_transform(df[column])
+        label_encoders[column] = le
 
-# Define categorical columns
-categorical_cols = ['Month', 'Day', 'Category', 'Product', 'IsFestival', 'IsWeekend', 'Season']
+    # Train a Random Forest model
+    X = df.drop('Sales', axis=1)
+    y = df['Sales']
+    rf = RandomForestRegressor()
+    rf.fit(X, y)
 
-# Define preprocessing steps
-preprocessor = ColumnTransformer(
-    transformers=[
-        ('cat', OneHotEncoder(), categorical_cols)
-    ])
+    #store the model in a pickle file
+    with open('model.pkl', 'wb') as model_file:
+        pickle.dump(rf, model_file)
 
-# Create a Random Forest regressor
-rf_regressor = Pipeline(steps=[
-    ('preprocessor', preprocessor),
-    ('regressor', RandomForestRegressor(n_estimators=100, random_state=42))
-])
+    #store the label encoders in a pickle file
+    with open('label_encoders.pkl', 'wb') as le_file:
+        pickle.dump(label_encoders, le_file)
 
-# Train the model using all the data
-rf_regressor.fit(X, y)
+def daily_predict_sales(year, month, day, category, product, is_festival, is_weekend, season):
+    with open('model.pkl', 'rb') as model_file:
+        model = pickle.load(model_file)
+    with open('label_encoders.pkl', 'rb') as le_file:
+        label_encoders = pickle.load(le_file)
+    new_data = {
+        'Year': [year],
+        'Month': [month],
+        'Day': [day],
+        'Category': [category],
+        'Product': [product],
+        'IsFestival': [is_festival],
+        'IsWeekend': [is_weekend],
+        'Season': [season]
+    }
+    new_df = pd.DataFrame(new_data)
+    for column in ['Month', 'Day', 'Category', 'Product', 'IsFestival', 'IsWeekend', 'Season']:
+        new_df[column] = label_encoders[column].transform(new_df[column])
+    prediction = model.predict(new_df)
+    return prediction[0]
 
-# Take input from the user
-user_input = pd.DataFrame(columns=X.columns)
-for column in X.columns:
-    user_input[column] = [input(f"Enter value for {column}: ")]
-
-#save the model
-with open('model.pkl', 'wb') as model_file:
-    pickle.dump(rf_regressor, model_file)
-
-#save the preprocessor
-with open('preprocessor.pkl', 'wb') as preprocessor_file:
-    pickle.dump(preprocessor, preprocessor_file)
-
-# Preprocess the user input
-user_input_processed = preprocessor.transform(user_input)
-
-# Make predictions
-y_pred = rf_regressor.predict(user_input_processed)
-
-# Print the predicted sales
-print(f'Predicted Sales: {y_pred}')
+# train_model()
+print(daily_predict_sales(2022, "january", "monday", 'electronics', 'mobile', False, False, 'winter'))
+print(daily_predict_sales(2022, "january", "monday", 'electronics', 'mobile', True, False, 'winter'))
+print(daily_predict_sales(2022, "january", "monday", 'electronics', 'mobile', False, True, 'winter'))
+print(daily_predict_sales(2022, "january", "monday", 'electronics', 'mobile', True, True, 'winter'))

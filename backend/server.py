@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from flask_cors import CORS
 
 #imporing custom function
-from predict_sales import forcasted_sales, getSalesModel
+from predict_sales import forcasted_sales, getSalesModel, predict_daily_sales
 
 load_dotenv()
 
@@ -37,9 +37,10 @@ def predict_sales():
         is_weekend = data['isWeekend']
         season = data['season']
 
-        sales = forcasted_sales(year, month, day, category, product, is_festival, is_weekend, season)
-        return jsonify({'sales': sales})
+        sales = predict_daily_sales(year, month, day, category, product, is_festival, is_weekend, season)
+        return jsonify({'year' : year, 'month' : month, 'day' : day, 'category' : category, 'product' : product, 'isFestival' : is_festival, 'isWeekend' : is_weekend, 'season' : season, 'sales' : sales})
     except Exception as e:
+        print(e)
         return jsonify({'error': str(e)})
    
 if __name__ == '__main__':
