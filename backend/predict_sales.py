@@ -103,3 +103,27 @@ def getSalesModel():
         pickle.dump(preprocessor, preprocessor_file)
 
     return stacked_model, preprocessor
+
+def predict_daily_sales(year, month, day, category, product, is_festival, is_weekend, season):
+    with open('model.pkl', 'rb') as model_file:
+        model = pickle.load(model_file)
+    with open('label_encoders.pkl', 'rb') as le_file:
+        label_encoders = pickle.load(le_file)
+    new_data = {
+        'Year': [year],
+        'Month': [month],
+        'Day': [day],
+        'Category': [category],
+        'Product': [product],
+        'IsFestival': [is_festival],
+        'IsWeekend': [is_weekend],
+        'Season': [season]
+    }
+    new_df = pd.DataFrame(new_data)
+    for column in ['Month', 'Day', 'Category', 'Product', 'IsFestival', 'IsWeekend', 'Season']:
+        new_df[column] = label_encoders[column].transform(new_df[column])
+    prediction = model.predict(new_df)
+    return prediction[0]
+    
+
+    
