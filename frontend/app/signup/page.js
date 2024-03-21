@@ -2,6 +2,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import logo2 from "../public/img/pnn.png";
+import Image from "next/image";
+
 
 export default function signup() {
   const [fullname, setFullname] = useState("");
@@ -27,10 +30,14 @@ export default function signup() {
     setConfirmPassword(e.target.value);
   };
 
-  
   const handleAcceptTermsChange = (e) => {
     setAcceptTerms(e.target.checked);
   };
+
+  function handleHomeClick() {
+    router.push("/");
+  }
+  
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -60,10 +67,17 @@ export default function signup() {
     <section className="bg-gray-50 dark:bg-gray-900">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <a
-          href="#"
+          href="#" onClick={handleHomeClick}
           className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
         >
-          जनहित Connect
+          <Image
+            src={logo2}
+            alt="पूर्वानुमान"
+            width={40}
+            height={40}
+            className="mr-2"
+          />
+          पूर्वानुमान
         </a>
         <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -148,7 +162,7 @@ export default function signup() {
                   required
                 />
               </div>
-              
+
               <div className="flex items-start">
                 <div className="flex items-center h-5">
                   <input

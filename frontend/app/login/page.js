@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import logo2 from "../public/img/pnn.png";
 
 export default function Login() {
   const [username, setUsername] = useState();
@@ -9,10 +11,16 @@ export default function Login() {
   const [message, setMessage] = useState("");
   const router = useRouter();
 
+  function handleHomeClick() {
+    router.push("/");
+  } 
+
   async function handleSubmit(e) {
     e.preventDefault();
     console.log(username);
     console.log(password);
+
+ 
 
     const response = await fetch("/api/login", {
       method: "POST",
@@ -28,7 +36,7 @@ export default function Login() {
     const data = await response.json();
     console.log(data);
 
-    if (!response.ok ){
+    if (!response.ok) {
       setMessage(data.message);
       return;
     }
@@ -42,16 +50,22 @@ export default function Login() {
     localStorage.setItem("id", id);
     localStorage.setItem("email", email);
     router.push("/dashboard");
-
   }
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <a
-          href="#"
+          href="#" onClick={handleHomeClick}
           className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
         >
-          जनहित Connect
+          <Image
+            src={logo2}
+            alt="पूर्वानुमान"
+            width={40}
+            height={40}
+            className="mr-2"
+          />
+          पूर्वानुमान
         </a>
         <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
