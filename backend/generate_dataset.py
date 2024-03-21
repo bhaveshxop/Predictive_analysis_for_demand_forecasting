@@ -6,19 +6,19 @@ import random
 category = ['electronics', 'beverages', 'clothing', 'travel', 'beauty']   
 
 electronics = ['mobile', 'laptop', 'headphones', 'camera', 'television', 'printer', 'speaker', 'smartwatch', 'tablet', 'heater']
-electronics_base_seales = [25, 14, 29, 9, 12, 6, 4, 8, 10 , 4]
+electronics_base_seales = [253, 142, 294, 90, 122, 63, 44, 86, 107 , 49]
 
 beverages = ['coffee power', 'softdrink', 'juice', 'energydrink', 'milk']
-beverages_base_seales = [20, 32, 20, 17, 10, 20]
+beverages_base_seales = [202, 323, 205, 176, 107, 203]
 
 clothing = ['saree', 'kurta', 'lehenga', 'jeans', 'shirt', 'tshirt', 'trouser', 'jacket', 'blazer', 'suit']
-clothing_base_seales = [10, 15, 8, 20, 25, 30, 15, 10, 5, 5]
+clothing_base_seales = [103, 156, 89, 201, 251, 303, 156, 108, 57, 59]
 
 travel = ['powerbank', 'backpack', 'luggage', 'trolley', 'bag', 'wallet', 'sunglasses', 'watch', 'shoes', 'umbrella']
-travel_base_seales = [30, 25, 20, 15, 10, 20, 10, 15, 25, 20]
+travel_base_seales = [303, 252, 208, 151, 107, 205, 103, 151, 254, 206]
 
 beauty = ['lipstick', 'eyeliner', 'mascara', 'foundation', 'compact', 'kajal', 'nailpolish', 'perfume', 'shampoo', 'conditioner']
-beauty_base_seales = [20, 25, 15, 10, 10, 20, 20, 10, 30, 25]
+beauty_base_seales = [208, 255, 158, 109, 103, 209, 207, 109, 304, 254]
 
 days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december']
