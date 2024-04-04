@@ -6,8 +6,9 @@ from flask_cors import CORS
 
 #imporing custom function
 from predict_sales import forcasted_sales, getSalesModel, predict_daily_sales
+from sentimental_analysis import get_sentiment
 
-load_dotenv()
+load_dotenv()   
 
 app = Flask(__name__) 
 CORS(app)
@@ -15,14 +16,14 @@ CORS(app)
 @app.route('/test', methods=['GET'])
 def test():
     return jsonify({'message': 'Hello World'})
+
 @app.route('/sentiment', methods=['POST'])
 def sentiment():
     data = request.get_json()
-    Name= data['reviewerName']
-    comments=data['reviewText']
-    
-    
-    return jsonify({'Name':Name,'comments':comments})
+    text = data['review']
+    sentiment = get_sentiment(text)
+    return jsonify({'sentiment': sentiment})
+
 
 @app.route('/predict-sales', methods=['POST'])
 def predict_sales():
